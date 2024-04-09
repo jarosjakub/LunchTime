@@ -24,20 +24,30 @@ namespace LunchTime
 
             driver.Navigate().GoToUrl(url);
 
-            IWebElement element = driver.FindElement(By.CssSelector("#antilukas > div:nth-child(7) > table > tbody > tr:nth-child(4) > td:nth-child(2)"));
+            IWebElement Polevka = driver.FindElement(By.CssSelector("#antilukas > div:nth-child(7) > table > tbody > tr:nth-child(3)"));
 
-            if (element.Displayed)
+            IWebElement VIPjidlo = driver.FindElement(By.CssSelector("#antilukas > div:nth-child(7) > table > tbody > tr:nth-child(4)"));
+            IWebElement Jidlo1 = driver.FindElement(By.CssSelector("#antilukas > div:nth-child(7) > table > tbody > tr:nth-child(5)"));
+            IWebElement Jidlo2 = driver.FindElement(By.CssSelector("#antilukas > div:nth-child(7) > table > tbody > tr:nth-child(6)"));
+            IWebElement Jidlo3 = driver.FindElement(By.CssSelector("#antilukas > div:nth-child(7) > table > tbody > tr:nth-child(7)"));
+            IWebElement LCjidlo = driver.FindElement(By.CssSelector("#antilukas > div:nth-child(7) > table > tbody > tr:nth-child(8)"));
+
+            if (Polevka.Displayed && VIPjidlo.Displayed && Jidlo1.Displayed && Jidlo2.Displayed && Jidlo3.Displayed && LCjidlo.Displayed)
             {
                 Aestheticals.GreenMessage("YES");
-                Menu = element.Text;
             }
 
             else
             {
                 Aestheticals.RedMessage("NOPE");
             }
+
+            string [] menu = new string[] { Polevka.Text, VIPjidlo.Text, Jidlo1.Text, Jidlo2.Text, Jidlo3.Text, LCjidlo.Text };
+            Menu = string.Join("\n\n", menu);
+
             return Menu;
-            //Thread.Sleep(5000);
+
+            Thread.Sleep(5000);
 
             driver.Quit();
 

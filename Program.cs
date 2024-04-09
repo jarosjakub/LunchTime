@@ -10,9 +10,11 @@ namespace LunchTime
         {
             var puor = new PUOR();
             puor.GetMenu();
+            Console.WriteLine(puor.Menu);
             Aestheticals.GreenMessage(puor.Menu);
 
             System.Environment.Exit(0);
+
             //IWebDriver driver = new ChromeDriver();
             ////var url = "https://www.trebovickymlyn.cz/#menu";
             ////var url = "https://www.ukluku.cz/";
