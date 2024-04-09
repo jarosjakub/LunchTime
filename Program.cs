@@ -2,54 +2,59 @@
 using OpenQA.Selenium.Chrome;
 using System.ComponentModel;
 
-namespace SeleniumWD
+namespace LunchTime
 {
     internal class Program
     {
         static void Main()
         {
-            IWebDriver driver = new ChromeDriver();
-            //var url = "https://www.trebovickymlyn.cz/#menu";
-            //var url = "https://www.ukluku.cz/";
-            var url = "https://www.slezska.com/?#poledni_menu";
-            var csspath = "#post-108 > div > figure > img";
-            var xpath = "//*[@id=\"post-108\"]/div/p";
+            var puor = new PUOR();
+            puor.GetMenu();
+            Aestheticals.GreenMessage(puor.Menu);
 
-            driver.Navigate().GoToUrl(url);
+            System.Environment.Exit(0);
+            //IWebDriver driver = new ChromeDriver();
+            ////var url = "https://www.trebovickymlyn.cz/#menu";
+            ////var url = "https://www.ukluku.cz/";
+            //var url = "https://www.slezska.com/?#poledni_menu";
+            //var csspath = "#post-108 > div > figure > img";
+            //var xpath = "//*[@id=\"post-108\"]/div/p";
 
-            //mlyn dnes
-            //IWebElement element = driver.FindElement(By.CssSelector("#container > div:nth-child(5) > div > div > div:nth-child(1) > div > div > div.menu-box.owl-wrapper > div.owl-carousel.owl-theme > div.owl-wrapper-outer > div > div:nth-child(1)")); 
-            //IWebElement element2 = driver.FindElement(By.CssSelector("#container > div:nth-child(5) > div > div > div:nth-child(1) > div > div > div.menu-box.owl-wrapper > div.owl-carousel.owl-theme > div.owl-wrapper-outer > div > div:nth-child(2)"));
+            //driver.Navigate().GoToUrl(url);
 
-            //IWebElement element = driver.FindElement(By.CssSelector("#container > div:nth-child(5) > div > div > div:nth-child(1) > div > div > div.menu-box.owl-wrapper > div.owl-carousel.owl-theme > div.owl-wrapper-outer > div > div:nth-child(1) > div > div:nth-child(1) > div"));
-            //IWebElement element2 = driver.FindElement(By.CssSelector("#container > div:nth-child(5) > div > div > div:nth-child(1) > div > div > div.menu-box.owl-wrapper > div.owl-carousel.owl-theme > div.owl-wrapper-outer > div > div:nth-child(1) > div > div:nth-child(2) > div"));
-            //IWebElement element3 = driver.FindElement(By.CssSelector("#container > div:nth-child(5) > div > div > div:nth-child(1) > div > div > div.menu-box.owl-wrapper > div.owl-carousel.owl-theme > div.owl-wrapper-outer > div > div:nth-child(2) > div > div:nth-child(1) > div"));
-            //IWebElement element4 = driver.FindElement(By.CssSelector("#container > div:nth-child(5) > div > div > div:nth-child(1) > div > div > div.menu-box.owl-wrapper > div.owl-carousel.owl-theme > div.owl-wrapper-outer > div > div:nth-child(2) > div > div:nth-child(2) > div"));
+            ////mlyn dnes
+            ////IWebElement element = driver.FindElement(By.CssSelector("#container > div:nth-child(5) > div > div > div:nth-child(1) > div > div > div.menu-box.owl-wrapper > div.owl-carousel.owl-theme > div.owl-wrapper-outer > div > div:nth-child(1)")); 
+            ////IWebElement element2 = driver.FindElement(By.CssSelector("#container > div:nth-child(5) > div > div > div:nth-child(1) > div > div > div.menu-box.owl-wrapper > div.owl-carousel.owl-theme > div.owl-wrapper-outer > div > div:nth-child(2)"));
 
-            //u kluku čtvrtek
-            //IWebElement element = driver.FindElement(By.CssSelector("#post-223 > div > div:nth-child(17) > div > div"));
+            ////IWebElement element = driver.FindElement(By.CssSelector("#container > div:nth-child(5) > div > div > div:nth-child(1) > div > div > div.menu-box.owl-wrapper > div.owl-carousel.owl-theme > div.owl-wrapper-outer > div > div:nth-child(1) > div > div:nth-child(1) > div"));
+            ////IWebElement element2 = driver.FindElement(By.CssSelector("#container > div:nth-child(5) > div > div > div:nth-child(1) > div > div > div.menu-box.owl-wrapper > div.owl-carousel.owl-theme > div.owl-wrapper-outer > div > div:nth-child(1) > div > div:nth-child(2) > div"));
+            ////IWebElement element3 = driver.FindElement(By.CssSelector("#container > div:nth-child(5) > div > div > div:nth-child(1) > div > div > div.menu-box.owl-wrapper > div.owl-carousel.owl-theme > div.owl-wrapper-outer > div > div:nth-child(2) > div > div:nth-child(1) > div"));
+            ////IWebElement element4 = driver.FindElement(By.CssSelector("#container > div:nth-child(5) > div > div > div:nth-child(1) > div > div > div.menu-box.owl-wrapper > div.owl-carousel.owl-theme > div.owl-wrapper-outer > div > div:nth-child(2) > div > div:nth-child(2) > div"));
 
-            //slezska VIP dnes
-            IWebElement element = driver.FindElement(By.CssSelector("#antilukas > div:nth-child(7) > table > tbody > tr:nth-child(4) > td:nth-child(2)"));
+            ////u kluku čtvrtek
+            ////IWebElement element = driver.FindElement(By.CssSelector("#post-223 > div > div:nth-child(17) > div > div"));
 
-            if (element.Displayed) 
-                //&& element2.Displayed && element3.Displayed && element4.Displayed)
-            {
-                Aestheticals.GreenMessage("YES");
-            }
-            else
-            {
-                Aestheticals.RedMessage("NOPE");
-            }
+            ////slezska VIP dnes
+            //IWebElement element = driver.FindElement(By.CssSelector("#antilukas > div:nth-child(7) > table > tbody > tr:nth-child(4) > td:nth-child(2)"));
 
-            Aestheticals.GreenMessage(element.Text);
-            //Aestheticals.GreenMessage(element2.Text);
-            //Aestheticals.GreenMessage(element3.Text);
-            //Aestheticals.GreenMessage(element4.Text);
+            //if (element.Displayed) 
+            //    //&& element2.Displayed && element3.Displayed && element4.Displayed)
+            //{
+            //    Aestheticals.GreenMessage("YES");
+            //}
+            //else
+            //{
+            //    Aestheticals.RedMessage("NOPE");
+            //}
 
-            Thread.Sleep(5000);
+            //Aestheticals.GreenMessage(element.Text);
+            ////Aestheticals.GreenMessage(element2.Text);
+            ////Aestheticals.GreenMessage(element3.Text);
+            ////Aestheticals.GreenMessage(element4.Text);
 
-            driver.Quit();
+            //Thread.Sleep(5000);
+
+            //driver.Quit();
         }
     }
 }

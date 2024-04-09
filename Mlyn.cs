@@ -8,19 +8,15 @@ using System.Threading.Tasks;
 
 namespace LunchTime
 {
-    public class PUOR
+    internal class Mlyn
     {
         public string Menu { get; set; }
 
 
         public string GetMenu()
         {
-            ChromeOptions options = new ChromeOptions();
-            options.AddArguments("--headless=new");
-
-
-            var url = "https://www.slezska.com/?#poledni_menu";
-            IWebDriver driver = new ChromeDriver(options);
+            var url = "https://www.trebovickymlyn.cz/#menu";
+            IWebDriver driver = new ChromeDriver();
 
             driver.Navigate().GoToUrl(url);
 
@@ -36,12 +32,12 @@ namespace LunchTime
             {
                 Aestheticals.RedMessage("NOPE");
             }
-            return Menu;
-            //Thread.Sleep(5000);
+
+            Thread.Sleep(5000);
 
             driver.Quit();
 
-            
+            return Menu;
         }
     }
 }
