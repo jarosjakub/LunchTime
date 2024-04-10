@@ -15,29 +15,46 @@ namespace LunchTime
 
         public string GetMenu()
         {
+            ChromeOptions options = new ChromeOptions();
+            options.AddArguments("--headless=new");
+
             var url = "https://www.trebovickymlyn.cz/#menu";
-            IWebDriver driver = new ChromeDriver();
+            IWebDriver driver = new ChromeDriver(options);
 
             driver.Navigate().GoToUrl(url);
 
-            IWebElement element = driver.FindElement(By.CssSelector("#antilukas > div:nth-child(7) > table > tbody > tr:nth-child(4) > td:nth-child(2)"));
+            IWebElement polevka = driver.FindElement(By.CssSelector("#container > div:nth-child(5) > div > div > div:nth-child(1) > div > div > div.menu-box.owl-wrapper > div.item > div > div"));
+            IWebElement jidlo1 = driver.FindElement(By.CssSelector("#container > div:nth-child(5) > div > div > div:nth-child(1) > div > div > div.menu-box.owl-wrapper > div.owl-carousel.owl-theme > div.owl-wrapper-outer > div > div:nth-child(1) > div > div:nth-child(1) > div"));
+            IWebElement jidlo2 = driver.FindElement(By.CssSelector("#container > div:nth-child(5) > div > div > div:nth-child(1) > div > div > div.menu-box.owl-wrapper > div.owl-carousel.owl-theme > div.owl-wrapper-outer > div > div:nth-child(1) > div > div:nth-child(2) > div"));
+            IWebElement jidlo3 = driver.FindElement(By.CssSelector("#container > div:nth-child(5) > div > div > div:nth-child(1) > div > div > div.menu-box.owl-wrapper > div.owl-carousel.owl-theme > div.owl-wrapper-outer > div > div:nth-child(2) > div > div:nth-child(1) > div"));
+            //IWebElement jidlo3 = driver.FindElement(By.XPath("//*[@id=\"container\"]/div[4]/div/div/div[1]/div/div/div[5]/div[2]/div[1]/div/div[2]/div/div[1]"));
+            IWebElement jidlo4 = driver.FindElement(By.CssSelector("#container > div:nth-child(5) > div > div > div:nth-child(1) > div > div > div.menu-box.owl-wrapper > div.owl-carousel.owl-theme > div.owl-wrapper-outer > div > div:nth-child(2) > div > div:nth-child(2) > div"));
 
-            if (element.Displayed)
-            {
-                Aestheticals.GreenMessage("YES");
-                Menu = element.Text;
-            }
 
-            else
-            {
-                Aestheticals.RedMessage("NOPE");
-            }
 
-            Thread.Sleep(5000);
 
-            driver.Quit();
 
+
+
+            Menu = polevka.Text + "\n" + jidlo1.Text + "\n" + jidlo2.Text + "\n" + jidlo3.Text + "\n" + jidlo4.Text;
             return Menu;
+
+            //if (element.Displayed)
+            //{
+            //    Aestheticals.GreenMessage("YES");
+            //    Menu = element.Text;
+            //}
+
+            //else
+            //{
+            //    Aestheticals.RedMessage("NOPE");
+            //}
+
+            //Thread.Sleep(5000);
+
+            //driver.Quit();
+
+            //return Menu;
         }
     }
 }

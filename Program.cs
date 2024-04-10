@@ -8,12 +8,28 @@ namespace LunchTime
     {
         static void Main()
         {
-            var puor = new PUOR();
-            puor.GetMenu();
-            Console.WriteLine(puor.Menu);
-            Aestheticals.GreenMessage(puor.Menu);
 
-            System.Environment.Exit(0);
+            var mlyn = new Mlyn();
+            mlyn.GetMenu();
+            Console.WriteLine(mlyn.Menu);
+
+
+
+            //var puor = new PUOR();
+            //puor.GetMenu();
+
+            ////Aestheticals.GreenMessage(puor.Menu);
+
+            //var kluci = new UKluku();
+            //kluci.GetMenu();
+
+
+            //Console.WriteLine("PUOR" + "\n" + "-----------------------" + "\n");
+            //Console.WriteLine(puor.Menu);
+            //Console.WriteLine("\n" + "U Kluků" + "\n" + "-----------------------" + "\n");
+            //Console.WriteLine(kluci.Menu);
+
+
 
             //IWebDriver driver = new ChromeDriver();
             ////var url = "https://www.trebovickymlyn.cz/#menu";

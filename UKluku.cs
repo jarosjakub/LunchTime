@@ -15,29 +15,87 @@ namespace LunchTime
 
         public string GetMenu()
         {
+
+            ChromeOptions options = new ChromeOptions();
+            options.AddArguments("--headless=new");
+
             var url = "https://www.ukluku.cz/";
-            IWebDriver driver = new ChromeDriver();
+            IWebDriver driver = new ChromeDriver(options);
 
             driver.Navigate().GoToUrl(url);
 
-            IWebElement element = driver.FindElement(By.CssSelector("#antilukas > div:nth-child(7) > table > tbody > tr:nth-child(4) > td:nth-child(2)"));
 
-            if (element.Displayed)
+            var ted = DateTime.Now;
+            ted = ted.AddDays(0);
+            var dnes = ted.ToString("ddd");
+            //DateTime.Now.ToString("ddd")
+            Console.WriteLine(dnes);
+
+            IWebElement tydenMenu = driver.FindElement(By.CssSelector("#post-223 > div > div:nth-child(9) > div > div"));
+            IWebElement denMenu = null;
+
+
+            switch (dnes)
             {
-                Aestheticals.GreenMessage("YES");
-                Menu = element.Text;
+                case "po":
+                    denMenu = driver.FindElement(By.CssSelector("#post-223 > div > div:nth-child(11) > div > div"));
+                    break;
+                case "út":
+                    denMenu = driver.FindElement(By.CssSelector("#post-223 > div > div:nth-child(13) > div > div"));
+                    break;
+                case "st":
+                    denMenu = driver.FindElement(By.CssSelector("#post-223 > div > div:nth-child(15) > div > div"));
+                    break;
+                case "čt":
+                    denMenu = driver.FindElement(By.CssSelector("#post-223 > div > div:nth-child(17) > div > div"));
+                    break;
+                case "pá":
+                    denMenu = driver.FindElement(By.CssSelector("#post-223 > div > div:nth-child(19) > div > div"));
+                    break;
+                case "so":
+                    Console.WriteLine("sobota");
+                    break;
+                case "ne":
+                    Console.WriteLine("nedele");
+                    break;
             }
 
-            else
-            {
-                Aestheticals.RedMessage("NOPE");
-            }
 
-            Thread.Sleep(5000);
 
-            driver.Quit();
-
+            Menu = tydenMenu.Text + "\n" + "--------" + "\n" + denMenu.Text;
             return Menu;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            //if (element.Displayed)
+            //{
+            //    Aestheticals.GreenMessage("YES");
+            //    Menu = element.Text;
+            //}
+
+            //else
+            //{
+            //    Aestheticals.RedMessage("NOPE");
+            //}
+
+            //Thread.Sleep(5000);
+
+            //driver.Quit();
+
+            //return Menu;
         }
     }
 }
