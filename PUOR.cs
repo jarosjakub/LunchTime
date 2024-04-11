@@ -23,16 +23,14 @@ namespace LunchTime
             IWebDriver driver = new ChromeDriver(options);
 
             driver.Navigate().GoToUrl(url);
-
             IWebElement Polevka = driver.FindElement(By.CssSelector("#antilukas > div:nth-child(7) > table > tbody > tr:nth-child(3)"));
 
             IWebElement VIPjidlo = driver.FindElement(By.CssSelector("#antilukas > div:nth-child(7) > table > tbody > tr:nth-child(4)"));
-            IWebElement Jidlo1 = driver.FindElement(By.CssSelector("#antilukas > div:nth-child(7) > table > tbody > tr:nth-child(5)"));
-            IWebElement Jidlo2 = driver.FindElement(By.CssSelector("#antilukas > div:nth-child(7) > table > tbody > tr:nth-child(6)"));
-            IWebElement Jidlo3 = driver.FindElement(By.CssSelector("#antilukas > div:nth-child(7) > table > tbody > tr:nth-child(7)"));
+            IWebElement jidlo1 = driver.FindElement(By.CssSelector("#antilukas > div:nth-child(7) > table > tbody > tr:nth-child(5)"));
+            IWebElement jidlo2 = driver.FindElement(By.CssSelector("#antilukas > div:nth-child(7) > table > tbody > tr:nth-child(6)"));
+            IWebElement jidlo3 = driver.FindElement(By.CssSelector("#antilukas > div:nth-child(7) > table > tbody > tr:nth-child(7)"));
             IWebElement LCjidlo = driver.FindElement(By.CssSelector("#antilukas > div:nth-child(7) > table > tbody > tr:nth-child(8)"));
-
-            if (Polevka.Displayed && VIPjidlo.Displayed && Jidlo1.Displayed && Jidlo2.Displayed && Jidlo3.Displayed && LCjidlo.Displayed)
+            if (Polevka.Displayed && VIPjidlo.Displayed && jidlo1.Displayed && jidlo2.Displayed && jidlo3.Displayed && LCjidlo.Displayed)
             {
                 Aestheticals.GreenMessage("YES");
             }
@@ -42,14 +40,14 @@ namespace LunchTime
                 Aestheticals.RedMessage("NOPE");
             }
 
-            string [] menu = new string[] { Polevka.Text, VIPjidlo.Text, Jidlo1.Text, Jidlo2.Text, Jidlo3.Text, LCjidlo.Text };
+            string[] menu = new string[] { Polevka.Text, VIPjidlo.Text, jidlo1.Text, jidlo2.Text, jidlo3.Text, LCjidlo.Text };
+            driver.Quit();
+
             Menu = string.Join("\n\n", menu);
 
             return Menu;
 
-            Thread.Sleep(5000);
-
-            driver.Quit();
+            
 
             
         }

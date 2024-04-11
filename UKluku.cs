@@ -59,11 +59,22 @@ namespace LunchTime
                     Console.WriteLine("nedele");
                     break;
             }
+            if (tydenMenu.Displayed && denMenu.Displayed)
+            {
+                Aestheticals.GreenMessage("YES");
+            }
 
+            else
+            {
+                Aestheticals.RedMessage("NOPE");
+            }
 
 
             Menu = tydenMenu.Text + "\n" + "--------" + "\n" + denMenu.Text;
+            driver.Quit();
+
             return Menu;
+
 
 
 
