@@ -10,44 +10,50 @@ namespace LunchTime
         {
             //TEST
 
-            ChromeOptions options = new ChromeOptions();
-            options.AddArguments("--headless=new");
+            //ChromeOptions options = new ChromeOptions();
+            //options.AddArguments("--headless=new");
+            //options.AddArguments("window-size=1920,1080");
 
-            var url = "https://www.trebovickymlyn.cz/#menu";
-            IWebDriver driver = new ChromeDriver(options);
+            //            var url = "https://www.trebovickymlyn.cz/#menu";
+            //IWebDriver driver = new ChromeDriver(options);
 
-            driver.Navigate().GoToUrl(url);
+            //driver.Navigate().GoToUrl(url);
 
-            IWebElement jidlo = driver.FindElement(By.CssSelector("#menureveal > div.owl-carousel.owl-theme > div.owl-wrapper-outer"));
+            //var jidlo = driver.FindElements(By.XPath("//*[@class=\'denmenu\']/following-sibling::div[@class=\'owl-carousel owl-theme\']")).First().FindElements(By.TagName("h2"));
 
-            Console.WriteLine(jidlo.Text);
-            driver.Quit();
+
+            //foreach (var item in jidlo)
+            //{
+            //    Console.WriteLine(item.Text);
+            //}
+
+            //driver.Quit();
 
             //TEST
 
 
-            //var mlyn = new Mlyn();
-            //mlyn.GetMenu();
-            ////Console.WriteLine(mlyn.Menu);
-
-
-
-            //var puor = new PUOR();
-            //puor.GetMenu();
-
-            ////Aestheticals.GreenMessage(puor.Menu);
-
-            //var kluci = new UKluku();
-            //kluci.GetMenu();
-
-            //Console.Clear();
-
-            //Console.WriteLine("PUOR" + "\n" + "-----------------------" + "\n");
-            //Console.WriteLine(puor.Menu);
-            //Console.WriteLine("\n" + "U Kluků" + "\n" + "-----------------------" + "\n");
-            //Console.WriteLine(kluci.Menu);
-            //Console.WriteLine("\n" + "Třebovický mlýn" + "\n" + "-----------------------" + "\n");
+            var mlyn = new Mlyn();
+            mlyn.GetMenu();
             //Console.WriteLine(mlyn.Menu);
+
+
+
+            var puor = new PUOR();
+            puor.GetMenu();
+
+            //Aestheticals.GreenMessage(puor.Menu);
+
+            var kluci = new UKluku();
+            kluci.GetMenu();
+
+            Console.Clear();
+
+            Console.WriteLine("PUOR" + "\n" + "-----------------------" + "\n");
+            Console.WriteLine(puor.Menu);
+            Console.WriteLine("\n" + "U Kluků" + "\n" + "-----------------------" + "\n");
+            Console.WriteLine(kluci.Menu);
+            Console.WriteLine("\n" + "Třebovický mlýn" + "\n" + "-----------------------" + "\n");
+            Console.WriteLine(mlyn.Menu);
 
         }
     }

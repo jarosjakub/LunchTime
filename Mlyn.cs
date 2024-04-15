@@ -17,6 +17,7 @@ namespace LunchTime
         {
             ChromeOptions options = new ChromeOptions();
             options.AddArguments("--headless=new");
+            options.AddArguments("window-size=1920,1080");
 
             var url = "https://www.trebovickymlyn.cz/#menu";
             IWebDriver driver = new ChromeDriver(options);
@@ -26,7 +27,7 @@ namespace LunchTime
             IWebElement polevka = driver.FindElement(By.CssSelector("#container > div:nth-child(5) > div > div > div:nth-child(1) > div > div > div.menu-box.owl-wrapper > div.item > div > div"));
             IWebElement jidlo1 = driver.FindElement(By.CssSelector("#container > div:nth-child(5) > div > div > div:nth-child(1) > div > div > div.menu-box.owl-wrapper > div.owl-carousel.owl-theme > div.owl-wrapper-outer > div > div:nth-child(1) > div > div:nth-child(1) > div"));
             IWebElement jidlo2 = driver.FindElement(By.CssSelector("#container > div:nth-child(5) > div > div > div:nth-child(1) > div > div > div.menu-box.owl-wrapper > div.owl-carousel.owl-theme > div.owl-wrapper-outer > div > div:nth-child(1) > div > div:nth-child(2) > div"));
-            IWebElement jidlo3 = driver.FindElement(By.CssSelector("#container > div:nth-child(5) > div > div > div:nth-child(1) > div > div > div.menu-box.owl-wrapper > div.owl-carousel.owl-theme > div.owl-wrapper-outer > div > div:nth-child(1) > div > div:nth-child(3) > div"));
+            //IWebElement jidlo3 = driver.FindElement(By.CssSelector("#container > div:nth-child(5) > div > div > div:nth-child(1) > div > div > div.menu-box.owl-wrapper > div.owl-carousel.owl-theme > div.owl-wrapper-outer > div > div:nth-child(1) > div > div:nth-child(3) > div"));
             IWebElement jidlo4 = driver.FindElement(By.CssSelector("#container > div:nth-child(5) > div > div > div:nth-child(1) > div > div > div.menu-box.owl-wrapper > div.owl-carousel.owl-theme > div.owl-wrapper-outer > div > div:nth-child(2) > div > div:nth-child(1) > div"));
             //IWebElement jidlo3 = driver.FindElement(By.XPath("//*[@id=\"container\"]/div[4]/div/div/div[1]/div/div/div[5]/div[2]/div[1]/div/div[2]/div/div[1]"));
             IWebElement jidlo5 = driver.FindElement(By.CssSelector("#container > div:nth-child(5) > div > div > div:nth-child(1) > div > div > div.menu-box.owl-wrapper > div.owl-carousel.owl-theme > div.owl-wrapper-outer > div > div:nth-child(2) > div > div:nth-child(2) > div"));
@@ -45,7 +46,7 @@ namespace LunchTime
 
 
 
-            Menu = polevka.Text + "\n" + jidlo1.Text + "\n" + jidlo2.Text + "\n" + jidlo3.Text + "\n" + jidlo4.Text + "\n" + jidlo5.Text;
+            Menu = polevka.Text + "\n" + jidlo1.Text + "\n" + jidlo2.Text + "\n" + /*jidlo3.Text +*/ "\n" + jidlo4.Text + "\n" + jidlo5.Text;
             driver.Quit();
 
             return Menu;
