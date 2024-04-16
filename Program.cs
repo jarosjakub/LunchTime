@@ -54,6 +54,7 @@ namespace LunchTime
             Console.WriteLine(kluci.Menu);
             Console.WriteLine("\n" + "Třebovický mlýn" + "\n" + "-----------------------" + "\n");
             Console.WriteLine(mlyn.Menu);
+            Console.WriteLine("炒面");
 
         }
     }

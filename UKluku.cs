@@ -26,9 +26,8 @@ namespace LunchTime
 
 
             var ted = DateTime.Now;
-            ted = ted.AddDays(0);
+            //ted = ted.AddDays(0);
             var dnes = ted.ToString("ddd");
-            //DateTime.Now.ToString("ddd")
             Console.WriteLine(dnes);
 
             IWebElement tydenMenu = driver.FindElement(By.CssSelector("#post-223 > div > div:nth-child(9) > div > div"));
