@@ -34,14 +34,9 @@ namespace LunchTime
 
             var mlyn = new Mlyn();
             mlyn.GetMenu();
-            //Console.WriteLine(mlyn.Menu);
-
-
 
             var puor = new PUOR();
             puor.GetMenu();
-
-            //Aestheticals.GreenMessage(puor.Menu);
 
             var kluci = new UKluku();
             kluci.GetMenu();
@@ -54,7 +49,6 @@ namespace LunchTime
             Console.WriteLine(kluci.Menu);
             Console.WriteLine("\n" + "Třebovický mlýn" + "\n" + "-----------------------" + "\n");
             Console.WriteLine(mlyn.Menu);
-            Console.WriteLine("炒面");
 
         }
     }
