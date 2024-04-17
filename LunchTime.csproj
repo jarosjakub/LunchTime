@@ -5,7 +5,12 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <ApplicationIcon>cutlery_114858.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="cutlery_114858.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Selenium.Support" Version="4.19.0" />
