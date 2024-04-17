@@ -35,14 +35,13 @@ namespace LunchTime
             var mlyn = new Mlyn();
             mlyn.GetMenu();
 
-
             var puor = new PUOR();
             puor.GetMenu();
 
             var kluci = new UKluku();
             kluci.GetMenu();
 
-            //Console.Clear();
+            Console.Clear();
 
             Console.WriteLine("PUOR" + "\n" + "-----------------------" + "\n");
             Console.WriteLine(puor.Menu);
