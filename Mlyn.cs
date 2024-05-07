@@ -29,7 +29,7 @@ internal class Mlyn
         {
             jidlo3 = driver.FindElement(By.CssSelector("#container > div:nth-child(5) > div > div > div:nth-child(1) > div > div > div.menu-box.owl-wrapper > div.owl-carousel.owl-theme > div.owl-wrapper-outer > div > div:nth-child(1) > div > div:nth-child(3) > div"));
         }
-        catch (Exception e)
+        catch (Exception)
         {
             pocetjidel = 4;
         }
