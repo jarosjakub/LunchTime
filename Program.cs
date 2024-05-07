@@ -1,8 +1,4 @@
-﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using System.ComponentModel;
-
-namespace LunchTime;
+﻿namespace LunchTime;
 
 internal class Program
 {
