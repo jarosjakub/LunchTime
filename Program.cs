@@ -2,54 +2,28 @@
 using OpenQA.Selenium.Chrome;
 using System.ComponentModel;
 
-namespace LunchTime
+namespace LunchTime;
+
+internal class Program
 {
-    internal class Program
+    static void Main()
     {
-        static void Main()
-        {
-            //TEST
+        var mlyn = new Mlyn();
+        mlyn.GetMenu();
 
-            //ChromeOptions options = new ChromeOptions();
-            //options.AddArguments("--headless=new");
-            //options.AddArguments("window-size=1920,1080");
+        var puor = new PUOR();
+        puor.GetMenu();
 
-            //            var url = "https://www.trebovickymlyn.cz/#menu";
-            //IWebDriver driver = new ChromeDriver(options);
+        var kluci = new UKluku();
+        kluci.GetMenu();
 
-            //driver.Navigate().GoToUrl(url);
+        Console.Clear();
 
-            //var jidlo = driver.FindElements(By.XPath("//*[@class=\'denmenu\']/following-sibling::div[@class=\'owl-carousel owl-theme\']")).First().FindElements(By.TagName("h2"));
-
-
-            //foreach (var item in jidlo)
-            //{
-            //    Console.WriteLine(item.Text);
-            //}
-
-            //driver.Quit();
-
-            //TEST
-
-
-            var mlyn = new Mlyn();
-            mlyn.GetMenu();
-
-            var puor = new PUOR();
-            puor.GetMenu();
-
-            var kluci = new UKluku();
-            kluci.GetMenu();
-
-            Console.Clear();
-
-            Console.WriteLine("PUOR" + "\n" + "-----------------------" + "\n");
-            Console.WriteLine(puor.Menu);
-            Console.WriteLine("\n" + "U Kluků" + "\n" + "-----------------------" + "\n");
-            Console.WriteLine(kluci.Menu);
-            Console.WriteLine("\n" + "Třebovický mlýn" + "\n" + "-----------------------" + "\n");
-            Console.WriteLine(mlyn.Menu);
-
-        }
+        Console.WriteLine("PUOR" + "\n" + "-----------------------" + "\n");
+        Console.WriteLine(puor.Menu);
+        Console.WriteLine("\n" + "U Kluků" + "\n" + "-----------------------" + "\n");
+        Console.WriteLine(kluci.Menu);
+        Console.WriteLine("\n" + "Třebovický mlýn" + "\n" + "-----------------------" + "\n");
+        Console.WriteLine(mlyn.Menu);
     }
 }
