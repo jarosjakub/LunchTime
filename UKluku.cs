@@ -19,15 +19,11 @@ internal class UKluku
 
         driver.Navigate().GoToUrl(url);
 
-
         var ted = DateTime.Now;
-        //ted = ted.AddDays(0);
         var dnes = ted.ToString("ddd");
-        Console.WriteLine(dnes);
 
         IWebElement tydenMenu = driver.FindElement(By.CssSelector("#post-223 > div > div:nth-child(9) > div > div"));
         IWebElement denMenu = null;
-
 
         switch (dnes)
         {
