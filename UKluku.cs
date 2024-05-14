@@ -64,38 +64,5 @@ internal class UKluku
         driver.Quit();
 
         return Menu;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //if (element.Displayed)
-        //{
-        //    Aestheticals.GreenMessage("YES");
-        //    Menu = element.Text;
-        //}
-
-        //else
-        //{
-        //    Aestheticals.RedMessage("NOPE");
-        //}
-
-        //Thread.Sleep(5000);
-
-        //driver.Quit();
-
-        //return Menu;
     }
 }
