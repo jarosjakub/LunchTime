@@ -1,25 +1,35 @@
-﻿namespace LunchTime;
-
-internal class Program
+﻿namespace LunchTime
 {
-    static void Main()
+    internal class Program
     {
-        var mlyn = new Mlyn();
-        mlyn.GetMenu();
+        static void Main()
+        {
+            Console.Title = "LunchTime";
 
-        var puor = new PUOR();
-        puor.GetMenu();
+            var mlyn = new Mlyn();
+            mlyn.GetMenu();
 
-        var kluci = new UKluku();
-        kluci.GetMenu();
+            var puor = new PUOR();
+            puor.GetMenu();
 
-        Console.Clear();
+            var kluci = new UKluku();
+            kluci.GetMenu();
 
-        Console.WriteLine("PUOR" + "\n" + "-----------------------" + "\n");
-        Console.WriteLine(puor.Menu);
-        Console.WriteLine("\n" + "U Kluků" + "\n" + "-----------------------" + "\n");
-        Console.WriteLine(kluci.Menu);
-        Console.WriteLine("\n" + "Třebovický mlýn" + "\n" + "-----------------------" + "\n");
-        Console.WriteLine(mlyn.Menu);
+            Console.Clear();
+
+            Console.WriteLine("PUOR" + "\n" + "-----------------------" + "\n");
+            Console.WriteLine(puor.Menu);
+            Console.WriteLine("\n" + "U Kluků" + "\n" + "-----------------------" + "\n");
+            Console.WriteLine(kluci.Menu);
+            Console.WriteLine("\n" + "Třebovický mlýn" + "\n" + "-----------------------" + "\n");
+            Console.WriteLine(mlyn.Menu);
+
+            Console.WindowWidth = 140;
+            Console.WindowHeight = 60;
+            
+            Console.WriteLine("\n"  + "-----------------------"+ "\n" + "Press any key to exit");
+            Console.SetCursorPosition(0, 0);
+            Console.ReadKey();
+        }
     }
 }
