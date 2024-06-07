@@ -7,11 +7,6 @@ namespace LunchTime
 {
     internal class Program
     {
-        [DllImport("user32.dll")]
-        public static extern bool SetForegroundWindow(IntPtr hWnd);
-
-        [DllImport("user32.dll")]
-        public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
         static void Main()
         {
             Console.Title = "LunchTime";
@@ -78,21 +73,25 @@ namespace LunchTime
             //Console.WriteLine(text);
             //------------------------------------------------------------
 
-            Console.Clear();
 
-            Console.WriteLine("PUOR" + "\n" + "-----------------------" + "\n");
-            Console.WriteLine(puor.Menu);
-            Console.WriteLine("\n" + "U Kluků" + "\n" + "-----------------------" + "\n");
-            Console.WriteLine(kluci.Menu);
-            Console.WriteLine("\n" + "Třebovický mlýn" + "\n" + "-----------------------" + "\n");
-            Console.WriteLine(mlyn.Menu);
 
-            Console.WindowWidth = 140;
-            Console.WindowHeight = 60;
+            ///-------------------------------------------------------------goodcode
+            //Console.Clear();
+
+            //Console.WriteLine("PUOR" + "\n" + "-----------------------" + "\n");
+            //Console.WriteLine(puor.Menu);
+            //Console.WriteLine("\n" + "U Kluků" + "\n" + "-----------------------" + "\n");
+            //Console.WriteLine(kluci.Menu);
+            //Console.WriteLine("\n" + "Třebovický mlýn" + "\n" + "-----------------------" + "\n");
+            //Console.WriteLine(mlyn.Menu);
+
+            //Console.WindowWidth = 140;
+            //Console.WindowHeight = 60;
             
-            Console.WriteLine("\n"  + "-----------------------"+ "\n" + "Press any key to exit");
-            Console.SetCursorPosition(0, 0);
-            Console.ReadKey();
+            //Console.WriteLine("\n"  + "-----------------------"+ "\n" + "Press any key to exit");
+            //Console.SetCursorPosition(0, 0);
+            //Console.ReadKey();
+            //------------------------------------------------------------------goodcode
         }
     }
 }

@@ -6,6 +6,7 @@ using UglyToad.PdfPig;
 using UglyToad.PdfPig.Graphics;
 using WindowsInput;
 using WindowsInput.Native;
+using System.IO;
 
 
 
@@ -14,7 +15,7 @@ namespace LunchTime
     public class TimeOff
     {
         //public string Menu { get; set; }
-        public static void GetText()
+        public  void GetText()
         {
             [DllImport("user32.dll")]
             static extern bool SetForegroundWindow(IntPtr hWnd);
@@ -23,7 +24,7 @@ namespace LunchTime
             static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
 
             var file = "C:\\Users\\jakub.jaros\\Desktop\\Test\\tyden23OR.pdf";
-            var file2 = "C:\\Users\\jakub.jaros\\Desktop\\Test\\temp.txt";
+            var file2 = "C:\\Users\\jakub.jaros\\Desktop\\Test\\test.txt";
             var sim = new InputSimulator();
 
             System.Threading.Thread.Sleep(2000);
@@ -40,8 +41,7 @@ namespace LunchTime
 
             sim.Keyboard.ModifiedKeyStroke(VirtualKeyCode.CONTROL, VirtualKeyCode.VK_A);
             sim.Keyboard.ModifiedKeyStroke(VirtualKeyCode.CONTROL, VirtualKeyCode.VK_C);
-            //sim.Keyboard.ModifiedKeyStroke(VirtualKeyCode.MENU, VirtualKeyCode.F4);
-
+            
             System.Threading.Thread.Sleep(2000);
             hWnd = FindWindow(null, "test.txt - Notepad");
 
