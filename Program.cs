@@ -11,6 +11,7 @@ namespace LunchTime
         {
             Console.Title = "LunchTime";
             var timeoff = new TimeOff();
+            timeoff.DownloadMenu();
             timeoff.GetText();
 
 
@@ -87,7 +88,7 @@ namespace LunchTime
 
             //Console.WindowWidth = 140;
             //Console.WindowHeight = 60;
-            
+
             //Console.WriteLine("\n"  + "-----------------------"+ "\n" + "Press any key to exit");
             //Console.SetCursorPosition(0, 0);
             //Console.ReadKey();
