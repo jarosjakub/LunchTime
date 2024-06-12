@@ -42,14 +42,13 @@ namespace LunchTime
 
         public void GetText()
         {
-            var filePath = "C:\\Users\\jakub.jaros\\Desktop\\Test\\test.txt";
-            var filePath2 = "C:\\Users\\jakub.jaros\\Desktop\\Test\\tyden24OR.pdf";
+            using (FileStream fs = File.Create(Config.TxtPath));
 
             var notepad = new Process()
             {
                 StartInfo = new ProcessStartInfo
                 {
-                    FileName = filePath,
+                    FileName = Config.TxtPath,
                     UseShellExecute = true
                 }
             };
@@ -58,7 +57,7 @@ namespace LunchTime
             {
                 StartInfo = new ProcessStartInfo
                 {
-                    FileName = filePath2,
+                    FileName = Config.PdfPath,
                     UseShellExecute = true
                 }
             };
@@ -73,12 +72,11 @@ namespace LunchTime
             [DllImport("user32.dll")]
             static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
 
-            var file = "C:\\Users\\jakub.jaros\\Desktop\\Test\\tyden24OR.pdf";
-            var file2 = "C:\\Users\\jakub.jaros\\Desktop\\Test\\test.txt";
+
             var sim = new InputSimulator();
 
             System.Threading.Thread.Sleep(2000);
-            IntPtr hWnd = FindWindow(null, "tyden24OR.pdf - Adobe Acrobat Reader (32-bit)");
+            IntPtr hWnd = FindWindow(null, Config.PdfWindow);
 
             if (hWnd == IntPtr.Zero)
             {
@@ -93,7 +91,7 @@ namespace LunchTime
             sim.Keyboard.ModifiedKeyStroke(VirtualKeyCode.CONTROL, VirtualKeyCode.VK_C);
 
             System.Threading.Thread.Sleep(2000);
-            hWnd = FindWindow(null, "test.txt - Notepad");
+            hWnd = FindWindow(null, Config.TxtWindow);
 
             if (hWnd == IntPtr.Zero)
             {
@@ -117,6 +115,24 @@ namespace LunchTime
             notepad.Kill();
         }
 
+        public void ReadText()
+        {
+            var text = File.ReadAllText(Config.TxtPath);
+            string[] days = text.Split("LCHF - LOW CARB HIGH FAT");
+            var LCHF = text.IndexOf("LCHF - LOW CARB HIGH FAT");
+            var FIT = text.IndexOf("FIT: studený salát");
+            Console.WriteLine(LCHF);
+            Console.WriteLine(FIT);
+            var filesd = new List<float>();
+            string [] files = Directory.GetFiles(Config.DirPath);
+            Console.WriteLine(File.GetCreationTime(Config.PdfPath));
+        }
+
+
+        public void Cleanup()
+        {
+            File.Delete(Config.TxtPath);
+        }
         //private void Select() { 
         //    SendKeys.Send("^a");
         //    Thread.Sleep(1000);
