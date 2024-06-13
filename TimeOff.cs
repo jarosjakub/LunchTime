@@ -17,13 +17,11 @@ namespace LunchTime
 
         public void DownloadMenu()
         {
-            var DownloadDirectory = "C:\\Users\\jakub.jaros\\Desktop\\Test";
-
-
+            Directory.CreateDirectory(Config.DirPath);
 
             ChromeOptions options = new ChromeOptions();
             options.AddUserProfilePreference("plugins.always_open_pdf_externally", true);
-            options.AddUserProfilePreference("download.default_directory", DownloadDirectory);
+            options.AddUserProfilePreference("download.default_directory", Config.DirPath);
             options.AddUserProfilePreference("download.prompt_for_download", false);
             options.AddUserProfilePreference("profile.default_content_setting_values.automatic_downloads", 0);
             options.AddArguments("--headless=new");
@@ -131,7 +129,8 @@ namespace LunchTime
 
         public void Cleanup()
         {
-            File.Delete(Config.TxtPath);
+            Directory.Delete(Config.DirPath, true);
+            //File.Delete(Config.TxtPath);
         }
         //private void Select() { 
         //    SendKeys.Send("^a");
