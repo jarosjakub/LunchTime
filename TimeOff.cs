@@ -13,15 +13,18 @@ namespace LunchTime
 {
     public class TimeOff
     {
-        //public string Menu { get; set; }
+        public string Menu { get; set; }
+        //public string TMenu { get; set; }
 
         public void DownloadMenu()
         {
-            Directory.CreateDirectory(Config.DirPath);
+            //Directory.CreateDirectory(Config.DirPath);
+            Config.DownloadDirPath = Config.DirPath + "\\Download";
+            Directory.CreateDirectory(Config.DownloadDirPath);
 
             ChromeOptions options = new ChromeOptions();
             options.AddUserProfilePreference("plugins.always_open_pdf_externally", true);
-            options.AddUserProfilePreference("download.default_directory", Config.DirPath);
+            options.AddUserProfilePreference("download.default_directory", Config.DownloadDirPath);
             options.AddUserProfilePreference("download.prompt_for_download", false);
             options.AddUserProfilePreference("profile.default_content_setting_values.automatic_downloads", 0);
             options.AddArguments("--headless=new");
@@ -38,9 +41,17 @@ namespace LunchTime
             driver.Quit();
         }
 
+        public void Setup()
+        {
+            string[] files = Directory.GetFiles(Config.DownloadDirPath);
+            Console.WriteLine(files[0]);
+            Config.PdfPath = files[0];
+            Config.TxtPath = Config.DirPath + "\\temp.txt";
+        }
+
         public void GetText()
         {
-            using (FileStream fs = File.Create(Config.TxtPath));
+            using (FileStream fs = File.Create(Config.TxtPath)) ;
 
             var notepad = new Process()
             {
@@ -62,7 +73,7 @@ namespace LunchTime
 
             notepad.Start();
             menu.Start();
-            
+
 
             [DllImport("user32.dll")]
             static extern bool SetForegroundWindow(IntPtr hWnd);
@@ -111,6 +122,7 @@ namespace LunchTime
 
             menu.Kill();
             notepad.Kill();
+            System.Threading.Thread.Sleep(2000);
         }
 
         public void ReadText()
@@ -121,11 +133,7 @@ namespace LunchTime
             var FIT = text.IndexOf("FIT: studený salát");
             Console.WriteLine(LCHF);
             Console.WriteLine(FIT);
-            var filesd = new List<float>();
-            string [] files = Directory.GetFiles(Config.DirPath);
-            Console.WriteLine(File.GetCreationTime(Config.PdfPath));
         }
-
 
         public void Cleanup()
         {

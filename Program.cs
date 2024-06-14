@@ -12,6 +12,7 @@ namespace LunchTime
             Console.Title = "LunchTime";
             var timeoff = new TimeOff();
             timeoff.DownloadMenu();
+            timeoff.Setup();
             timeoff.GetText();
             timeoff.ReadText();
             timeoff.Cleanup();
