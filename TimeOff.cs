@@ -128,11 +128,22 @@ namespace LunchTime
         public void ReadText()
         {
             var text = File.ReadAllText(Config.TxtPath);
-            string[] days = text.Split("LCHF - LOW CARB HIGH FAT");
+            var tydenmenu = "tydenmenu";
             var LCHF = text.IndexOf("LCHF - LOW CARB HIGH FAT");
             var FIT = text.IndexOf("FIT: studený salát");
             Console.WriteLine(LCHF);
             Console.WriteLine(FIT);
+            if (/*LCHF > 0 &&*/ FIT > LCHF)
+            {
+                string[] split = text.Split("FIT: studený salát");
+                tydenmenu = split[0];
+            }
+            if (FIT > 0 && LCHF > FIT)
+            {
+                string[] split = text.Split("LCHF - LOW CARB HIGH FAT");
+                tydenmenu = split[0];
+            }
+            string[] days = text.Split("POLÉVKA:");
         }
 
         public void Cleanup()

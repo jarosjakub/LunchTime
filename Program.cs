@@ -9,13 +9,14 @@ namespace LunchTime
     {
         static void Main()
         {
+            Config.Setup();
             Console.Title = "LunchTime";
-            var timeoff = new TimeOff();
-            timeoff.DownloadMenu();
-            timeoff.Setup();
-            timeoff.GetText();
-            timeoff.ReadText();
-            timeoff.Cleanup();
+            //var timeoff = new TimeOff();
+            //timeoff.DownloadMenu();
+            //timeoff.Setup();
+            //timeoff.GetText();
+            //timeoff.ReadText();
+            //timeoff.Cleanup();
             //Console.ReadLine();
 
 
@@ -81,6 +82,15 @@ namespace LunchTime
 
 
             ///-------------------------------------------------------------goodcode
+            //var mlyn = new Mlyn();
+            //mlyn.GetMenu();
+
+            //var puor = new PUOR();
+            //puor.GetMenu();
+
+            //var kluci = new UKluku();
+            //kluci.GetMenu();
+
             //Console.Clear();
 
             //Console.WriteLine("PUOR" + "\n" + "-----------------------" + "\n");
@@ -93,7 +103,7 @@ namespace LunchTime
             //Console.WindowWidth = 140;
             //Console.WindowHeight = 60;
 
-            //Console.WriteLine("\n"  + "-----------------------"+ "\n" + "Press any key to exit");
+            //Console.WriteLine("\n" + "-----------------------" + "\n" + "Press any key to exit");
             //Console.SetCursorPosition(0, 0);
             //Console.ReadKey();
             //------------------------------------------------------------------goodcode

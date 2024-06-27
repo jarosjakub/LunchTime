@@ -19,13 +19,10 @@ namespace LunchTime
 
             driver.Navigate().GoToUrl(url);
 
-            var ted = DateTime.Now;
-            var dnes = ted.ToString("ddd");
-
             IWebElement tydenMenu = driver.FindElement(By.CssSelector("#post-223 > div > div:nth-child(9) > div > div"));
             IWebElement denMenu = null;
 
-            switch (dnes)
+            switch (Config.DenDnes)
             {
                 case "po":
                     denMenu = driver.FindElement(By.CssSelector("#post-223 > div > div:nth-child(11) > div > div"));
