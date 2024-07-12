@@ -5,6 +5,14 @@ using WindowsInput.Native;
 
 namespace LunchTime
 {
+    //TODO
+    //timeoff: auto pdf name detect
+    //timeoff: splitter polevka x cervencova akce
+    //timeoff: standardize loading console text
+    //timeoff: remove debug fluff
+    //add basta u reky
+    //UI
+
     internal class Program
     {
         static void Main()
