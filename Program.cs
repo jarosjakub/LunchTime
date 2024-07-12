@@ -11,101 +11,43 @@ namespace LunchTime
         {
             Config.Setup();
             Console.Title = "LunchTime";
-            //var timeoff = new TimeOff();
-            //timeoff.DownloadMenu();
-            //timeoff.Setup();
-            //timeoff.GetText();
-            //timeoff.ReadText();
-            //timeoff.Cleanup();
-            //Console.ReadLine();
-
-
-
-            //var file = "C:\\Users\\jakub.jaros\\Desktop\\Test\\tyden23OR.pdf";
-            //var file2 = "C:\\Users\\jakub.jaros\\Desktop\\Test\\temp.txt";
-            //var sim = new InputSimulator();
-
-            //System.Threading.Thread.Sleep(2000);
-            //IntPtr hWnd = FindWindow(null, "tyden23OR.pdf - Adobe Acrobat Reader (32-bit)");
-
-            //if (hWnd == IntPtr.Zero)
-            //{
-            //    Console.WriteLine("Window not found!");
-            //    return;
-            //}
-
-            //// Set the window as foreground
-            //SetForegroundWindow(hWnd);
-
-            //sim.Keyboard.ModifiedKeyStroke(VirtualKeyCode.CONTROL, VirtualKeyCode.VK_A);
-            //sim.Keyboard.ModifiedKeyStroke(VirtualKeyCode.CONTROL, VirtualKeyCode.VK_C);
-            ////sim.Keyboard.ModifiedKeyStroke(VirtualKeyCode.MENU, VirtualKeyCode.F4);
-
-            //System.Threading.Thread.Sleep(2000);
-            //hWnd = FindWindow(null, "test.txt - Notepad");
-
-            //if (hWnd == IntPtr.Zero)
-            //{
-            //    Console.WriteLine("Window not found!");
-            //    return;
-            //}
-
-            //// Set the window as foreground
-            //SetForegroundWindow(hWnd);
-
-            //System.Threading.Thread.Sleep(2000);
-            //sim.Keyboard.ModifiedKeyStroke(VirtualKeyCode.CONTROL, VirtualKeyCode.VK_V);
-            //sim.Keyboard.ModifiedKeyStroke(VirtualKeyCode.CONTROL, VirtualKeyCode.VK_A);
-
-            //sim.Keyboard.ModifiedKeyStroke(VirtualKeyCode.CONTROL, VirtualKeyCode.DELETE);
-            //System.Threading.Thread.Sleep(2000);
-            //sim.Keyboard.ModifiedKeyStroke(VirtualKeyCode.CONTROL, VirtualKeyCode.VK_S);
+            var timeoff = new TimeOff();
+            timeoff.DownloadMenu();
+            timeoff.Setup();
+            timeoff.GetText();
+            timeoff.GetMenu();
+            timeoff.Cleanup();
 
 
 
 
+            // -------------------------------------------------------------goodcode
+            var mlyn = new Mlyn();
+            mlyn.GetMenu();
 
+            var puor = new PUOR();
+            puor.GetMenu();
 
-            //----------------------------------------------------------pdfpig
-            //var timeoff = new TimeOff();
-            //TimeOff.GetMenu();
+            var kluci = new UKluku();
+            kluci.GetMenu();
 
-            //var DownloadDirectory = "C:\\Users\\jakub.jaros\\Desktop\\Test";
-            //var names = Directory.GetFiles(DownloadDirectory);
-            //var FileName = names[0];
-            //Console.WriteLine(FileName);
+            Console.Clear();
 
-            //string text = TimeOff.ExtractTextFromPdf(FileName);
-            //Console.WriteLine(text);
-            //------------------------------------------------------------
+            Console.WriteLine("TimeOff" + "\n" + "-----------------------" + "\n");
+            Console.WriteLine(timeoff.Menu);
+            Console.WriteLine("\n" + "PUOR" + "\n" + "-----------------------" + "\n");
+            Console.WriteLine(puor.Menu);
+            Console.WriteLine("\n" + "U Kluků" + "\n" + "-----------------------" + "\n");
+            Console.WriteLine(kluci.Menu);
+            Console.WriteLine("\n" + "Třebovický mlýn" + "\n" + "-----------------------" + "\n");
+            Console.WriteLine(mlyn.Menu);
 
+            Console.WindowWidth = 140;
+            Console.WindowHeight = 60;
 
-
-            ///-------------------------------------------------------------goodcode
-            //var mlyn = new Mlyn();
-            //mlyn.GetMenu();
-
-            //var puor = new PUOR();
-            //puor.GetMenu();
-
-            //var kluci = new UKluku();
-            //kluci.GetMenu();
-
-            //Console.Clear();
-
-            //Console.WriteLine("PUOR" + "\n" + "-----------------------" + "\n");
-            //Console.WriteLine(puor.Menu);
-            //Console.WriteLine("\n" + "U Kluků" + "\n" + "-----------------------" + "\n");
-            //Console.WriteLine(kluci.Menu);
-            //Console.WriteLine("\n" + "Třebovický mlýn" + "\n" + "-----------------------" + "\n");
-            //Console.WriteLine(mlyn.Menu);
-
-            //Console.WindowWidth = 140;
-            //Console.WindowHeight = 60;
-
-            //Console.WriteLine("\n" + "-----------------------" + "\n" + "Press any key to exit");
-            //Console.SetCursorPosition(0, 0);
-            //Console.ReadKey();
+            Console.WriteLine("\n" + "-----------------------" + "\n" + "Press any key to exit");
+            Console.SetCursorPosition(0, 0);
+            Console.ReadKey();
             //------------------------------------------------------------------goodcode
         }
     }

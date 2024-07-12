@@ -125,10 +125,11 @@ namespace LunchTime
             System.Threading.Thread.Sleep(2000);
         }
 
-        public void ReadText()
+        public string GetMenu()
         {
             var text = File.ReadAllText(Config.TxtPath);
             var tydenmenu = "tydenmenu";
+            //split konce
             var LCHF = text.IndexOf("LCHF - LOW CARB HIGH FAT");
             var FIT = text.IndexOf("FIT: studený salát");
             Console.WriteLine(LCHF);
@@ -143,7 +144,34 @@ namespace LunchTime
                 string[] split = text.Split("LCHF - LOW CARB HIGH FAT");
                 tydenmenu = split[0];
             }
-            string[] days = text.Split("POLÉVKA:");
+            string[] days = tydenmenu.Split("ČERVENCOVÁ AKCE:");
+
+            switch (Config.DenDnes)
+            {
+                case "po":
+                    Menu = days[1];
+                    break;
+                case "út":
+                    Menu = days[2];
+                    break;
+                case "st":
+                    Menu = days[3];
+                    break;
+                case "čt":
+                    Menu = days[4];
+                    break;
+                case "pá":
+                    Menu = days[5];
+                    break;
+                case "so":
+                    Console.WriteLine("sobota");
+                    break;
+                case "ne":
+                    Console.WriteLine("nedele");
+                    break;
+            }
+
+            return Menu;
         }
 
         public void Cleanup()
